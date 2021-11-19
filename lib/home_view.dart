@@ -42,25 +42,31 @@ class _HomeViewState extends State<HomeView> {
       ),
       body: ListView.builder(
         itemBuilder: (context, index) {
-          return ListTile(
-            leading: Checkbox(
-              value: list[index].isDone,
-              onChanged: (bool? value) {
-                setState(() {
-                  list[index].isDone = !list[index].isDone;
-                });
-              },
-            ),
-            title: Text(
-              list[index].title,
-            ),
-            trailing: IconButton(
-              onPressed: () {
-                removeTodo(index);
-              },
-              icon: const Icon(
-                Icons.close_rounded,
-                color: Colors.red,
+          return Card(
+            color: Colors.lightBlueAccent,
+            child: ListTile(
+              leading: Checkbox(
+                value: list[index].isDone,
+                onChanged: (bool? value) {
+                  setState(() {
+                    list[index].isDone = !list[index].isDone;
+                  });
+                },
+              ),
+              title: Text(
+                list[index].title,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              trailing: IconButton(
+                onPressed: () {
+                  removeTodo(index);
+                },
+                icon: const Icon(
+                  Icons.close_rounded,
+                  color: Colors.redAccent,
+                ),
               ),
             ),
           );
