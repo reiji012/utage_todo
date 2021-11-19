@@ -10,8 +10,8 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   List<TodoModel> list = [
-    TodoModel('バナナ'),
-    TodoModel('りんご'),
+    TodoModel('パン'),
+    TodoModel('タオル'),
   ];
 
   /// todoを追加
@@ -22,7 +22,7 @@ class _HomeViewState extends State<HomeView> {
     });
   }
 
-  /// todoを追加
+  /// todoを削除
   void removeTodo(int index) {
     setState(() {
       list.removeAt(index);
@@ -59,7 +59,7 @@ class _HomeViewState extends State<HomeView> {
                 removeTodo(index);
               },
               icon: const Icon(
-                Icons.delete_forever,
+                Icons.close_rounded,
                 color: Colors.red,
               ),
             ),
@@ -89,7 +89,7 @@ class _HomeViewState extends State<HomeView> {
                       }
                       Navigator.of(context).pop();
                     },
-                    child: Text('追加'),
+                    child: const Text('追加'),
                   ),
                 ],
               );
